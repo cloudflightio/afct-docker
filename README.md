@@ -1,1 +1,1 @@
-# afct-docker
+# Inofficial Azure Functions Core Tools Container
