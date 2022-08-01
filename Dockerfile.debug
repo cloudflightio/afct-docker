@@ -1,0 +1,6 @@
+FROM ghcr.io/cloudflightio/afct-docker:main
+
+RUN \
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        strace \
+    && rm -rf /var/lib/apt/lists/*
