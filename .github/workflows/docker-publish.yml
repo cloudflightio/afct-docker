@@ -38,10 +38,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build, Sign and Publish docker image
-        uses: ./actions/build-image
+        uses: ./.github/actions/build-image
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
   build_debug:
+    needs: [ build ]
 
     runs-on: ubuntu-latest
     permissions:
@@ -56,7 +57,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build, Sign and Publish docker image (debug)
-        uses: ./actions/build-image
+        uses: ./.github/actions/build-image
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-debug
           file: Dockerfile.debug
